@@ -34,8 +34,30 @@ and open the template in the editor.
 
                     <li>Selecione o seu serviço <br />
                         <select name="selectServico" class="input">
-                            <option></option>
+                            
+                            <?php
+                            //PASSO 1: INCLUIR AS DEFINIÇÕES DE ACESSO A DADOS
+                            include "conexao_bd.php";
+                            //PASSO 2: MONTAR COMANDO SQL
+                            $sql = "SELECT * FROM servico ORDER BY descricao";
+                            //EXECUTAR O SQL E GUARDAR O RESULTADO EM UMA VARIÁVEL
+                            $resultado = retornarDados($sql); //RETORNAR DADOS É SÓ PARA O SELECT, PARA TRAZER OS DADOS
+                            while($linha = mysqli_fetch_assoc($resultado)){ //ESSA FUÇÃO PEGA AS LINHAS DE 
+                            //'RESULTADO', AÍ VC SÓ PRECISA ESPECIFICAR A COLUNA QUE VOCÊ QUER A LINHA
+                            ?>
+                            <option>
+                            <?php echo $linha["descricao"]; ?>
+                            R$ 
+                            <?php echo $linha["preco"]; ?>
+                            </option>
+
+                            <?php
+                            }
+                            ?>
+                            
                         </select>
+
+
                     </li>
 
                     <li>Data do agendamento<br />
@@ -45,7 +67,9 @@ and open the template in the editor.
                     <li>
                         Selecione o seu horário<br />
                         <select name="selectHorario" class="input">
-                        
+                            <?php
+                            
+                            ?>
                             <option value="09">09:00 as 10:00</option>
                             <option value="09">10:00 as 11:00</option>
                             <option value="09">11:00 as 12:00</option>
