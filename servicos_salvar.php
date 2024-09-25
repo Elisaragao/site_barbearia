@@ -23,8 +23,25 @@ and open the template in the editor.
 
         <form name="formServico" action="" method="post">
             <div id="body">
-
-                
+            <?php
+            //PASSO 1: INCLUIR AS DEFINIÇÕES DE ACESSO A DADOS 
+            include "conexao_bd.php";
+            //PASSO 2: CAPTURAR OS VALORES DIGITADOS
+            $descricao = $_POST['txtDescricao'];
+            $preco = $_POST['txtPreco'];
+            //PASSO 3: MONTAR O COMANDO SQL
+            $sql = "INSERT INTO servico (descricao, preco)";
+            $sql .= "VALUES ('$descricao', '$preco')";
+            //PASSO 4: 
+            if(executarComando($sql))
+            {
+                echo "<h4> Serviço adicionado com sucesso! </h4>";
+            }
+            else
+            {
+                echo "<h4> Falha na conexão </h4>";
+            }
+            ?>
             </div>
         </form>
 

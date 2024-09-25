@@ -37,7 +37,10 @@ and open the template in the editor.
                     
                     <!-- A PARTIR DAQUI OS DADOS DA TABELA DEVEM VIR DO BANCO DE DADOS -->
                     <tr>
-                        <td></td>
+                        <td><?php
+                        
+                        ?> </td>
+                        
                         <td></td>
                     </tr>
                 </table>
