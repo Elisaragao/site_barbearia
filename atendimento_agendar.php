@@ -21,7 +21,7 @@ and open the template in the editor.
 
         <!-- CORPO DA PÁGINA -->
 
-        <form name="formAtendimento" action="" method="post">
+        <form name="formAtendimento" action="atendimento_salvar.php" method="post">
             <div id="body">
 
                 <h1><span>Agendar atendimento</span></h1>
@@ -45,7 +45,7 @@ and open the template in the editor.
                             while($linha = mysqli_fetch_assoc($resultado)){ //ESSA FUÇÃO PEGA AS LINHAS DE 
                             //'RESULTADO', AÍ VC SÓ PRECISA ESPECIFICAR A COLUNA QUE VOCÊ QUER A LINHA
                             ?>
-                            <option>
+                            <option value="<?php echo $linha["id_servico"]?>">
                             <?php echo $linha["descricao"]; ?>
                             R$ 
                             <?php echo $linha["preco"]; ?>
